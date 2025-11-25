@@ -14,31 +14,13 @@ export function Sidebar({ className }: SidebarProps) {
       )}
     >
       <div className="flex flex-col h-full">
-        <div className="p-6">
-          <div className="flex items-center gap-2">
-            <svg
-              width="50"
-              height="50"
-              viewBox="0 0 50 50"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="flex-shrink-0"
-            >
-              <text
-                x="25"
-                y="35"
-                fontSize="32"
-                fontWeight="bold"
-                fill="#4B68FE"
-                textAnchor="middle"
-                fontFamily="Inter, sans-serif"
-              >
-                TP
-              </text>
-            </svg>
-            <span className="text-sm font-semibold text-slate-800">
-              THE PLAZA
-            </span>
+        <div className="p-5">
+          <div className="flex items-center">
+            <img
+              src="https://api.builder.io/api/v1/image/assets/TEMP/bd7b775f66d46877e7c9356d907202c9d282b170?width=332"
+              alt="The Plaza"
+              className="h-12 object-contain"
+            />
           </div>
         </div>
 
