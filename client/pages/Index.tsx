@@ -1,62 +1,50 @@
-import { DemoResponse } from "@shared/api";
-import { useEffect, useState } from "react";
+import { Sidebar } from "@/components/dashboard/Sidebar";
+import { Header } from "@/components/dashboard/Header";
+import { StatsCard } from "@/components/dashboard/StatsCard";
+import { LeadsTable } from "@/components/dashboard/LeadsTable";
+import { RightSidebar } from "@/components/dashboard/RightSidebar";
 
 export default function Index() {
-  const [exampleFromServer, setExampleFromServer] = useState("");
-  // Fetch users on component mount
-  useEffect(() => {
-    fetchDemo();
-  }, []);
-
-  // Example of how to fetch data from the server (if needed)
-  const fetchDemo = async () => {
-    try {
-      const response = await fetch("/api/demo");
-      const data = (await response.json()) as DemoResponse;
-      setExampleFromServer(data.message);
-    } catch (error) {
-      console.error("Error fetching hello:", error);
-    }
-  };
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: FUSION_GENERATION_APP_PLACEHOLDER replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
-          >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
+    <div className="min-h-screen bg-[#F2F4F7]">
+      <Sidebar />
+      <Header />
+
+      <main className="ml-[245px] pt-[66px] min-h-screen">
+        <div className="p-6 lg:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-6">
+            <StatsCard
+              title="Active Leads"
+              value="11"
+              change={40.5}
+              changeLabel="from last month"
             />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
+            <StatsCard
+              title="Total Leads"
+              value="20"
+              change={40.5}
+              changeLabel="from last month"
             />
-          </svg>
-          Generating your app...
-        </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
-        </p>
-        <p className="mt-4 hidden max-w-md">{exampleFromServer}</p>
-      </div>
+            <StatsCard
+              title="Avg Lead Value"
+              value="£120 - £250"
+              change={-1.5}
+              changeLabel="from last month"
+            />
+            <StatsCard
+              title="Avg. Group Size"
+              value="85"
+              change={-5}
+              changeLabel="from last month"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 xl:grid-cols-[1fr_330px] gap-6">
+            <LeadsTable />
+            <RightSidebar />
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
