@@ -7,39 +7,28 @@ interface RightSidebarProps {
 export function RightSidebar({ className }: RightSidebarProps) {
   return (
     <div className={cn("flex flex-col gap-6", className)}>
-      <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg p-6 border border-[#F6F6F6]">
-        <div className="flex flex-col gap-2">
-          <h3 className="text-xl font-semibold text-gray-800">Top Category</h3>
-          <p className="text-2xl font-bold text-[#4B68FE]">Corporate Events</p>
-          <p className="text-sm text-gray-600">48.5% win rate</p>
+      <div className="flex flex-col rounded-lg overflow-hidden">
+        <div className="relative w-full h-[72px] flex items-center justify-center">
+          <img
+            src="https://api.builder.io/api/v1/image/assets/TEMP/5a39757d394da7f568c5b478ca79d307fefe6397?width=660"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
         </div>
-        <div className="mt-4">
-          <svg
-            viewBox="0 0 200 80"
-            className="w-full h-20"
-            preserveAspectRatio="none"
-          >
-            <defs>
-              <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#93AAFD" stopOpacity="0.3" />
-                <stop offset="50%" stopColor="#4B68FE" stopOpacity="0.5" />
-                <stop offset="100%" stopColor="#2D5BFF" stopOpacity="0.3" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M0,40 Q25,20 50,40 T100,40 T150,40 T200,40"
-              fill="none"
-              stroke="url(#waveGradient)"
-              strokeWidth="2"
-            />
-            <path
-              d="M0,50 Q25,30 50,50 T100,50 T150,50 T200,50"
-              fill="none"
-              stroke="url(#waveGradient)"
-              strokeWidth="2"
-              opacity="0.5"
-            />
-          </svg>
+        <div className="bg-white border border-[#F6F6F6] rounded-b-lg p-5">
+          <div className="flex flex-col gap-[18px]">
+            <div className="flex flex-col gap-2">
+              <h3 className="text-[20px] font-medium text-[#404040] tracking-[-0.4px]">
+                Top Category
+              </h3>
+              <p className="text-2xl font-semibold text-[#4A6AFE]">
+                Corporate Events
+              </p>
+            </div>
+            <p className="text-xs font-light text-[#404040] tracking-[-0.24px]">
+              48.9% win rate
+            </p>
+          </div>
         </div>
       </div>
 
