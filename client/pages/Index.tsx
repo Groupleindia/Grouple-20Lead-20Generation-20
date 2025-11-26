@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Sidebar } from "@/components/dashboard/Sidebar";
 import { Header } from "@/components/dashboard/Header";
 import { StatsCard } from "@/components/dashboard/StatsCard";
@@ -5,12 +6,17 @@ import { LeadsTable } from "@/components/dashboard/LeadsTable";
 import { RightSidebar } from "@/components/dashboard/RightSidebar";
 
 export default function Index() {
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+
   return (
     <div className="min-h-screen bg-[#F2F4F7]">
-      <Sidebar />
-      <Header />
+      <Sidebar
+        isCollapsed={sidebarCollapsed}
+        onToggle={() => setSidebarCollapsed(!sidebarCollapsed)}
+      />
+      <Header sidebarCollapsed={sidebarCollapsed} />
 
-      <main className="ml-[245px] pt-[66px] min-h-screen">
+      <main className={`pt-[66px] min-h-screen transition-all duration-300 ${sidebarCollapsed ? "ml-[82px]" : "ml-[245px]"}`}>
         <div className="p-6 lg:p-8">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-6">
             <StatsCard

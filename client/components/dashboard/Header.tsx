@@ -3,13 +3,15 @@ import { cn } from "@/lib/utils";
 
 interface HeaderProps {
   className?: string;
+  sidebarCollapsed?: boolean;
 }
 
-export function Header({ className }: HeaderProps) {
+export function Header({ className, sidebarCollapsed = false }: HeaderProps) {
   return (
     <header
       className={cn(
-        "fixed top-0 right-0 left-[245px] h-[66px] border-b border-[#D5D5D5] bg-white shadow-sm z-10",
+        "fixed top-0 right-0 h-[66px] border-b border-[#D5D5D5] bg-white shadow-sm z-10 transition-all duration-300",
+        sidebarCollapsed ? "left-[82px]" : "left-[245px]",
         className
       )}
     >
