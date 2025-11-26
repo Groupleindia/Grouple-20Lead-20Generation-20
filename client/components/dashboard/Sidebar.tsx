@@ -88,7 +88,7 @@ export function Sidebar({
                 "flex items-center justify-center bg-[#4B68FE] text-white text-[8px] font-medium rounded-full",
                 isCollapsed
                   ? "absolute left-[41px] -top-[-1px] w-4 h-4 text-[8px]"
-                  : "min-w-[16px] h-5 px-2 rounded text-xs"
+                  : "min-w-[18px] h-5 px-2 rounded text-xs"
               )}
             >
               2
