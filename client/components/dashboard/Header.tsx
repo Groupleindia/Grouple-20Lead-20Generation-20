@@ -12,7 +12,7 @@ export function Header({ className, sidebarCollapsed = false }: HeaderProps) {
       className={cn(
         "fixed top-0 right-0 h-[66px] border-b border-[#D5D5D5] bg-white shadow-sm z-10 transition-all duration-300",
         sidebarCollapsed ? "left-[82px]" : "left-[245px]",
-        className
+        className,
       )}
     >
       <div className="h-full flex items-center justify-end px-6">

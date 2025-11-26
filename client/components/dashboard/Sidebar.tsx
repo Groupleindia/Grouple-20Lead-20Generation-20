@@ -7,20 +7,26 @@ interface SidebarProps {
   onToggle?: () => void;
 }
 
-export function Sidebar({ className, isCollapsed = false, onToggle }: SidebarProps) {
+export function Sidebar({
+  className,
+  isCollapsed = false,
+  onToggle,
+}: SidebarProps) {
   return (
     <aside
       className={cn(
         "fixed left-0 top-0 h-screen border-r border-[#D5D5D5] bg-white overflow-auto transition-all duration-300",
         isCollapsed ? "w-[82px]" : "w-[245px]",
-        className
+        className,
       )}
     >
       <div className="flex flex-col h-full">
-        <div className={cn(
-          "flex items-center justify-center",
-          isCollapsed ? "p-4" : "p-5"
-        )}>
+        <div
+          className={cn(
+            "flex items-center justify-center",
+            isCollapsed ? "p-4" : "p-5",
+          )}
+        >
           {isCollapsed ? (
             <div className="w-[50px] h-[50px] flex items-center justify-center border border-[#D5D5D5] rounded bg-white">
               <img
@@ -45,31 +51,42 @@ export function Sidebar({ className, isCollapsed = false, onToggle }: SidebarPro
             href="#"
             className={cn(
               "flex items-center border-l-4 border-[#4A6AFE] bg-[#EDF0FF] text-[#4B68FE]",
-              isCollapsed ? "justify-center py-2.5 h-[42px]" : "gap-3 px-6 py-2.5"
+              isCollapsed
+                ? "justify-center py-2.5 h-[42px]"
+                : "gap-3 px-6 py-2.5",
             )}
           >
             <Home className="w-5 h-5" />
-            {!isCollapsed && <span className="text-sm font-medium">Dashboard</span>}
+            {!isCollapsed && (
+              <span className="text-sm font-medium">Dashboard</span>
+            )}
           </a>
 
           <a
             href="#"
             className={cn(
               "flex items-center text-[#7C7C80] hover:bg-gray-50 transition-colors relative",
-              isCollapsed ? "justify-center py-2.5" : "justify-between px-6 py-2.5"
+              isCollapsed
+                ? "justify-center py-2.5"
+                : "justify-between px-6 py-2.5",
             )}
           >
-            <div className={cn(
-              "flex items-center",
-              isCollapsed ? "" : "gap-3"
-            )}>
+            <div
+              className={cn("flex items-center", isCollapsed ? "" : "gap-3")}
+            >
               <FileCheck className="w-5 h-5" />
-              {!isCollapsed && <span className="text-sm font-medium">Leads</span>}
+              {!isCollapsed && (
+                <span className="text-sm font-medium">Leads</span>
+              )}
             </div>
-            <div className={cn(
-              "flex items-center justify-center bg-[#4B68FE] text-white text-[8px] font-medium rounded-full",
-              isCollapsed ? "absolute -top-1 left-[11px] w-3.5 h-3.5" : "min-w-[20px] h-5 px-2 rounded text-xs"
-            )}>
+            <div
+              className={cn(
+                "flex items-center justify-center bg-[#4B68FE] text-white text-[8px] font-medium rounded-full",
+                isCollapsed
+                  ? "absolute -top-1 left-[11px] w-3.5 h-3.5"
+                  : "min-w-[20px] h-5 px-2 rounded text-xs",
+              )}
+            >
               2
             </div>
           </a>
@@ -78,33 +95,41 @@ export function Sidebar({ className, isCollapsed = false, onToggle }: SidebarPro
             href="#"
             className={cn(
               "flex items-center text-[#7C7C80] hover:bg-gray-50 transition-colors",
-              isCollapsed ? "justify-center py-2.5" : "gap-3 px-6 py-2.5"
+              isCollapsed ? "justify-center py-2.5" : "gap-3 px-6 py-2.5",
             )}
           >
             <PieChart className="w-5 h-5" />
-            {!isCollapsed && <span className="text-sm font-medium">Analytics</span>}
+            {!isCollapsed && (
+              <span className="text-sm font-medium">Analytics</span>
+            )}
           </a>
 
           <a
             href="#"
             className={cn(
               "flex items-center text-[#7C7C80] hover:bg-gray-50 transition-colors",
-              isCollapsed ? "justify-center py-2.5" : "gap-3 px-6 py-2.5"
+              isCollapsed ? "justify-center py-2.5" : "gap-3 px-6 py-2.5",
             )}
           >
             <Settings className="w-5 h-5" />
-            {!isCollapsed && <span className="text-sm font-medium">Settings</span>}
+            {!isCollapsed && (
+              <span className="text-sm font-medium">Settings</span>
+            )}
           </a>
         </nav>
 
-        <div className={cn(
-          "mt-auto border-t border-[#D5D5D5]",
-          isCollapsed ? "px-3.5 py-5" : "px-6 py-5"
-        )}>
-          <div className={cn(
-            "flex items-center",
-            isCollapsed ? "justify-center" : "justify-between gap-12"
-          )}>
+        <div
+          className={cn(
+            "mt-auto border-t border-[#D5D5D5]",
+            isCollapsed ? "px-3.5 py-5" : "px-6 py-5",
+          )}
+        >
+          <div
+            className={cn(
+              "flex items-center",
+              isCollapsed ? "justify-center" : "justify-between gap-12",
+            )}
+          >
             {!isCollapsed && (
               <svg
                 width="100"
@@ -113,41 +138,41 @@ export function Sidebar({ className, isCollapsed = false, onToggle }: SidebarPro
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-              <g clipPath="url(#clip0_726_2803)">
-                <path
-                  d="M20.7246 7.26718L20.4757 5.69307H17.3516V19.3179H20.7246V12.13C20.7246 9.61629 22.355 8.67664 24.1258 8.67664C25.2301 8.67664 25.8686 8.98183 26.5593 9.56007L28.0812 6.6287C27.3343 5.8818 25.981 5.33167 24.5716 5.33167C23.1621 5.33167 21.7807 5.58063 20.7287 7.26718H20.7246Z"
-                  fill="#4B68FE"
-                />
-                <path
-                  d="M35.9145 5.4176C31.5737 5.4176 28.8672 8.62204 28.8672 12.5212C28.8672 16.4203 31.5215 19.6247 35.9426 19.6247C40.3638 19.6247 43.0462 16.4444 43.0462 12.5212C43.0462 8.59794 40.2554 5.4176 35.9145 5.4176ZM35.9426 16.5287C33.4811 16.5287 32.2403 14.5932 32.2403 12.5212C32.2403 10.4491 33.5132 8.48551 35.9426 8.48551C38.2074 8.48551 39.645 10.4732 39.645 12.5212C39.645 14.5691 38.4002 16.5287 35.9426 16.5287Z"
-                  fill="#4B68FE"
-                />
-                <path
-                  d="M55.5965 12.658C55.5965 14.73 54.187 16.4728 52.115 16.4728C50.0429 16.4728 48.8262 14.8987 48.8262 12.8226V5.69495H45.4531V12.8547C45.4531 17.0831 47.8303 19.5447 51.091 19.5447C52.9984 19.5447 54.2954 18.8821 55.7049 17.5008L55.9258 19.3519H58.9374V5.69495H55.5925V12.658H55.5965Z"
-                  fill="#4B68FE"
-                />
-                <path
-                  d="M69.9739 5.39026C68.4279 5.39026 66.6008 6.05283 65.5528 7.57473L65.3319 5.69544H62.1797V25.0144H65.5528V17.7181C66.5205 19.2119 68.6488 19.6536 70.0864 19.6536C74.4553 19.6536 76.9691 16.5014 76.9691 12.5219C76.9691 8.54249 74.1782 5.39026 69.9779 5.39026H69.9739ZM69.725 16.3889C67.4321 16.3889 65.8539 14.6462 65.8539 12.5179C65.8539 10.3897 67.2915 8.64689 69.725 8.64689C72.1584 8.64689 73.596 10.3897 73.596 12.5179C73.596 14.6462 72.0219 16.3889 69.725 16.3889Z"
-                  fill="#4B68FE"
-                />
-                <path
-                  d="M83.1028 -0.000366211H79.7578V19.3186H83.1028V-0.000366211Z"
-                  fill="#4B68FE"
-                />
-                <path
-                  d="M93.0526 5.27698C88.6314 5.27698 85.8125 8.26055 85.8125 12.4086C85.8125 16.7776 88.6033 19.6768 93.3016 19.6768C95.3736 19.6768 97.7227 18.9581 99.1603 17.4643L97.0039 15.336C96.2289 16.1391 94.5986 16.6089 93.3538 16.6089C90.9765 16.6089 89.5108 15.3922 89.29 13.7057H99.9313C100.457 8.09591 97.6103 5.27698 93.0486 5.27698H93.0526ZM89.3502 10.9149C89.8482 9.148 91.342 8.26055 93.165 8.26055C95.1005 8.26055 96.4819 9.14398 96.7028 10.9149H89.3502Z"
-                  fill="#4B68FE"
-                />
-                <path
-                  d="M14.9502 3.15393H11.5812C11.5812 4.43089 10.5411 5.47092 9.26416 5.47092C8.51325 5.17377 7.7021 5.09747 6.903 5.09747C3.0882 5.09747 -0.0078125 7.75177 -0.0078125 12.0083C-0.0078125 16.2648 2.64649 18.8629 6.903 18.8629C8.58954 18.8629 10.3564 19.7182 10.3564 21.5975C10.3564 23.4768 8.8345 24.5289 6.903 24.5289C4.97151 24.5289 3.33717 23.3684 3.33717 21.5975H-0.0078125C-0.0078125 25.2717 2.94765 27.6771 6.903 27.6771C10.8583 27.6771 13.7295 25.3561 13.7295 21.5975C13.7295 19.8547 13.1753 18.2244 10.9106 17.092C13.1472 16.068 13.7857 13.6908 13.7857 12.0083C13.7857 10.5145 13.4002 9.16124 12.3481 7.97263L12.3682 7.90838C13.9222 6.89244 14.9542 5.14566 14.9542 3.15393H14.9502ZM6.903 15.795C4.93938 15.795 3.33717 14.3855 3.33717 12.0083C3.33717 9.63106 4.93938 8.16538 6.903 8.16538C8.86662 8.16538 10.4407 9.65917 10.4407 12.0083C10.4407 14.3574 8.83851 15.795 6.903 15.795Z"
-                  fill="#4B68FE"
-                />
-              </g>
-              <defs>
-                <clipPath id="clip0_726_2803">
-                  <rect width="100" height="27.6794" fill="white" />
-                </clipPath>
-              </defs>
+                <g clipPath="url(#clip0_726_2803)">
+                  <path
+                    d="M20.7246 7.26718L20.4757 5.69307H17.3516V19.3179H20.7246V12.13C20.7246 9.61629 22.355 8.67664 24.1258 8.67664C25.2301 8.67664 25.8686 8.98183 26.5593 9.56007L28.0812 6.6287C27.3343 5.8818 25.981 5.33167 24.5716 5.33167C23.1621 5.33167 21.7807 5.58063 20.7287 7.26718H20.7246Z"
+                    fill="#4B68FE"
+                  />
+                  <path
+                    d="M35.9145 5.4176C31.5737 5.4176 28.8672 8.62204 28.8672 12.5212C28.8672 16.4203 31.5215 19.6247 35.9426 19.6247C40.3638 19.6247 43.0462 16.4444 43.0462 12.5212C43.0462 8.59794 40.2554 5.4176 35.9145 5.4176ZM35.9426 16.5287C33.4811 16.5287 32.2403 14.5932 32.2403 12.5212C32.2403 10.4491 33.5132 8.48551 35.9426 8.48551C38.2074 8.48551 39.645 10.4732 39.645 12.5212C39.645 14.5691 38.4002 16.5287 35.9426 16.5287Z"
+                    fill="#4B68FE"
+                  />
+                  <path
+                    d="M55.5965 12.658C55.5965 14.73 54.187 16.4728 52.115 16.4728C50.0429 16.4728 48.8262 14.8987 48.8262 12.8226V5.69495H45.4531V12.8547C45.4531 17.0831 47.8303 19.5447 51.091 19.5447C52.9984 19.5447 54.2954 18.8821 55.7049 17.5008L55.9258 19.3519H58.9374V5.69495H55.5925V12.658H55.5965Z"
+                    fill="#4B68FE"
+                  />
+                  <path
+                    d="M69.9739 5.39026C68.4279 5.39026 66.6008 6.05283 65.5528 7.57473L65.3319 5.69544H62.1797V25.0144H65.5528V17.7181C66.5205 19.2119 68.6488 19.6536 70.0864 19.6536C74.4553 19.6536 76.9691 16.5014 76.9691 12.5219C76.9691 8.54249 74.1782 5.39026 69.9779 5.39026H69.9739ZM69.725 16.3889C67.4321 16.3889 65.8539 14.6462 65.8539 12.5179C65.8539 10.3897 67.2915 8.64689 69.725 8.64689C72.1584 8.64689 73.596 10.3897 73.596 12.5179C73.596 14.6462 72.0219 16.3889 69.725 16.3889Z"
+                    fill="#4B68FE"
+                  />
+                  <path
+                    d="M83.1028 -0.000366211H79.7578V19.3186H83.1028V-0.000366211Z"
+                    fill="#4B68FE"
+                  />
+                  <path
+                    d="M93.0526 5.27698C88.6314 5.27698 85.8125 8.26055 85.8125 12.4086C85.8125 16.7776 88.6033 19.6768 93.3016 19.6768C95.3736 19.6768 97.7227 18.9581 99.1603 17.4643L97.0039 15.336C96.2289 16.1391 94.5986 16.6089 93.3538 16.6089C90.9765 16.6089 89.5108 15.3922 89.29 13.7057H99.9313C100.457 8.09591 97.6103 5.27698 93.0486 5.27698H93.0526ZM89.3502 10.9149C89.8482 9.148 91.342 8.26055 93.165 8.26055C95.1005 8.26055 96.4819 9.14398 96.7028 10.9149H89.3502Z"
+                    fill="#4B68FE"
+                  />
+                  <path
+                    d="M14.9502 3.15393H11.5812C11.5812 4.43089 10.5411 5.47092 9.26416 5.47092C8.51325 5.17377 7.7021 5.09747 6.903 5.09747C3.0882 5.09747 -0.0078125 7.75177 -0.0078125 12.0083C-0.0078125 16.2648 2.64649 18.8629 6.903 18.8629C8.58954 18.8629 10.3564 19.7182 10.3564 21.5975C10.3564 23.4768 8.8345 24.5289 6.903 24.5289C4.97151 24.5289 3.33717 23.3684 3.33717 21.5975H-0.0078125C-0.0078125 25.2717 2.94765 27.6771 6.903 27.6771C10.8583 27.6771 13.7295 25.3561 13.7295 21.5975C13.7295 19.8547 13.1753 18.2244 10.9106 17.092C13.1472 16.068 13.7857 13.6908 13.7857 12.0083C13.7857 10.5145 13.4002 9.16124 12.3481 7.97263L12.3682 7.90838C13.9222 6.89244 14.9542 5.14566 14.9542 3.15393H14.9502ZM6.903 15.795C4.93938 15.795 3.33717 14.3855 3.33717 12.0083C3.33717 9.63106 4.93938 8.16538 6.903 8.16538C8.86662 8.16538 10.4407 9.65917 10.4407 12.0083C10.4407 14.3574 8.83851 15.795 6.903 15.795Z"
+                    fill="#4B68FE"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_726_2803">
+                    <rect width="100" height="27.6794" fill="white" />
+                  </clipPath>
+                </defs>
               </svg>
             )}
 
