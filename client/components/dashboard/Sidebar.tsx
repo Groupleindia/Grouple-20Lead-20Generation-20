@@ -65,34 +65,35 @@ export function Sidebar({
           <a
             href="#"
             className={cn(
-              "flex items-center text-[#7C7C80] hover:bg-gray-50 transition-colors relative",
+              "flex items-center text-[#7C7C80] hover:bg-gray-50 transition-colors",
               isCollapsed
-                ? "justify-center py-2.5"
-                : "justify-between px-6 py-2.5",
+                ? "relative justify-center py-2.5"
+                : "justify-between px-6 py-2.5"
             )}
           >
             <div
-              className={cn("flex items-center", isCollapsed ? "" : "gap-3")}
+              className={cn(
+                "flex items-center",
+                isCollapsed ? "relative" : "gap-3"
+              )}
             >
               <FileCheck className="w-5 h-5" />
               {!isCollapsed && (
                 <span className="text-sm font-medium">Leads</span>
               )}
             </div>
+
             <div
-              <a
-              href="#"
               className={cn(
-                "flex items-center text-[#7C7C80] hover:bg-gray-50 transition-colors relative",
+                "flex items-center justify-center bg-[#4B68FE] text-white text-[8px] font-medium rounded-full",
                 isCollapsed
-                  ? "justify-center py-2.5"
-                  : "justify-between px-6 py-2.5",
+                  ? "absolute -top-1 left-1/2 -translate-x-1/2 w-3.5 h-3.5"
+                  : "min-w-[20px] h-5 px-2 rounded text-xs"
               )}
             >
               2
             </div>
           </a>
-
           <a
             href="#"
             className={cn(
