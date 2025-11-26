@@ -82,8 +82,7 @@ export function Sidebar({
                 <span className="text-sm font-medium">Leads</span>
               )}
             </div>
-
-            <div
+            
               className={cn(
                 "flex items-center justify-center bg-[#4B68FE] text-white text-[8px] font-medium rounded-full",
                 isCollapsed
