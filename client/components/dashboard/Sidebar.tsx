@@ -87,7 +87,7 @@ export function Sidebar({
               className={cn(
                 "flex items-center justify-center bg-[#4B68FE] text-white text-[8px] font-medium rounded-full",
                 isCollapsed
-                  ? "absolute -top-1.5 -right-3 w-4 h-4 text-[10px]"
+                  ? "absolute left-[11px] -top-[5px] w-3.5 h-3.5 text-[8px]"
                   : "min-w-[20px] h-5 px-2 rounded text-xs"
               )}
             >
