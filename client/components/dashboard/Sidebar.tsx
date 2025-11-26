@@ -80,11 +80,13 @@ export function Sidebar({
               )}
             </div>
             <div
+              <a
+              href="#"
               className={cn(
-                "flex items-center justify-center bg-[#4B68FE] text-white text-[8px] font-medium rounded-full",
+                "flex items-center text-[#7C7C80] hover:bg-gray-50 transition-colors relative",
                 isCollapsed
-                  ? "absolute -top-1 left-[11px] w-3.5 h-3.5"
-                  : "min-w-[20px] h-5 px-2 rounded text-xs",
+                  ? "justify-center py-2.5"
+                  : "justify-between px-6 py-2.5",
               )}
             >
               2
